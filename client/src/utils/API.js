@@ -4,6 +4,14 @@ export default {
 
     // api route for external api,
     // need to find this info
+    googleSearch: function(str) {
+        const queryString = str.split(" ").join("+");
+        
+        return axios.get(
+            "www.googleapis.com/books/v1/volume?q=" + queryString
+            // need to write function to pass in the query as a string with spaces replaced with + or %20
+        );
+    },
 
     // api route to get saved books
     getBooks: function() {
