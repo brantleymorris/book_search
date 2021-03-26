@@ -6,11 +6,16 @@ export default {
     // need to find this info
     googleSearch: function(str) {
         const queryString = str.split(" ").join("+");
+
+        return axios.get("/api/google", queryString);
         
-        return axios.get(
-            "www.googleapis.com/books/v1/volume?q=" + queryString
+        // moved this to the backend
+        // return axios.get(
+        //     "https://www.googleapis.com/books/v1/volume?q=" + queryString + "&key=AIzaSyCSN4MrPL6cftiYJv9BiP4KOk4kbbFoCws"
             // need to write function to pass in the query as a string with spaces replaced with + or %20
-        );
+            // add :keyes&key=AIzaSyCSN4MrPL6cftiYJv9BiP4KOk4kbbFoCws
+            // this may have to be moved to the back end and passes forward
+        // );
     },
 
     // api route to get saved books

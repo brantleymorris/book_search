@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "../components/SearchBar";
-import BookCard from "../components/BookCard";
+import SearchResults from "../components/SearchResults";
 import { Container, Row, Col} from "../components/Grid";
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
                         <Search />
                     </Col>
                     <Col size="md-6">
-                        <BookCard />
+                        <SearchResults />
                     </Col>
                 </Row>
             </Container>
