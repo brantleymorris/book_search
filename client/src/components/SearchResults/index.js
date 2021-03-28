@@ -2,12 +2,25 @@ import React, { useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import { Container, Row, Col } from "../Grid";
 import { List, ListItem } from "../List";
+import API from "../../utils/API";
 
 const SearchResults = () => {
 
     const [state, dispatch] = useStateContext();
 
+    const addSaved = async (data) => {
+        try {
+            const response = await API.saveBook(data);
+            // response err 422- Unprocessabel Entity?
+            console.log(response);
+        } catch (err) {
+            console.log(err)
+        };
+    };
+
     return (
+
+// TODO - add button to save book to db
 
         state && state.posts && state.posts.length ? (
                 state.posts.map(result =>
@@ -23,16 +36,19 @@ const SearchResults = () => {
                                             <strong>
                                                 {result.volumeInfo.title} by {result.volumeInfo.authors.join(",")}
                                             </strong>
+                                            <button className="btn" onClick={ () => addSaved(result.volumeInfo)}>
+                                                ❤️ Add to Saved
+                                            </button>
                                         </Row>
                                         {result.volumeInfo.description ? (
                                             <Row>
                                                 {result.volumeInfo.description.substring(0,250) /*only load 250 characters*/} 
                                             </Row>
-                                            ) : 
+                                            ) : (
                                             <Row>
                                                 No description available.    
                                             </Row>
-                                        }
+                                        )}
                                     </Container>
                                 </Col>
                             </Row>
