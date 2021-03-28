@@ -7,7 +7,7 @@ export default {
     googleSearch: function(str) {
         const queryString = str.split(" ").join("+");
 
-        return axios.get("/api/google", queryString);
+        return axios.get(`/api/google?title=${queryString}`);
         
         // moved this to the backend
         // return axios.get(

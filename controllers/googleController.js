@@ -3,16 +3,18 @@
 
 // I don't remember how to do this
 // installed node-fetch to allow for fetch from node.js
-const fetch = require("node-fetch");
+// Calvin note: lets use axios. I think its so much easier
+const axios = require("axios");
 
 module.exports = {
     find: async (req, res) => {
         try {
-            const queryString = req.body.queryString;
-            const url = "https://www.googleapis.com/books/v1/volume?q=" + queryString + "&key=AIzaSyCSN4MrPL6cftiYJv9BiP4KOk4kbbFoCws"
-
-            const result = await fetch(url);
-            return res.json(result);
+            const title = req.query.title;
+            const url = "https://www.googleapis.com/books/v1/volumes?q=" + title;
+            console.log(url);
+            const result = await axios.get(url);
+            console.log(result.data);
+            return res.json(result.data);
         } catch (err) {
             console.log(err)
         };

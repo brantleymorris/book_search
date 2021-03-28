@@ -8,7 +8,7 @@ const reducer = (state, action) => {
         case "search":
             return{
                 ...state,
-                posts: action.result,
+                posts: action.post.items,
                 loading: false
             };
         // add more cases as necesary
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
 // need to tailor this to search and saved needs
 const initialState = {
     saved: [],
-    resul: {},
+    result: {},
     loading: false
 };
 

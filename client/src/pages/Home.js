@@ -4,6 +4,7 @@ import SearchResults from "../components/SearchResults";
 import { Container, Row, Col} from "../components/Grid";
 
 const Home = () => {
+
     return (
         <div>
             <Container fluid>
