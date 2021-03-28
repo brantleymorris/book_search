@@ -18,8 +18,10 @@ const reducer = (state, action) => {
 };
 
 // need to tailor this to search and saved needs
+// posts key value is added when the state is updated
 const initialState = {
     saved: [],
+    posts: [],
     result: {},
     loading: false
 };
