@@ -10,7 +10,16 @@ const SearchResults = () => {
 
     const addSaved = async (data) => {
         try {
-            const response = await API.saveBook(data);
+            // filter data
+            const filteredData = {
+                title: data.title,
+                author: data.authors[0],
+                description: data.description
+            };
+
+            console.log(filteredData);
+
+            const response = await API.saveBook(filteredData);
             // response err 422- Unprocessabel Entity?
             console.log(response);
         } catch (err) {

@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// need to figure out what other data will need to be entered
+// TODO - update to match data from GoogleBooks API
+//      - I think this is everything I need
 const bookSchema = new Schema({
     title: {type: String, required: true},
     author: {type: String, required: true},
-    body: {type: String, required: true},
+    description: {type: String, required: true},
     date: {type: Date, default: Date.now}
 });
 
