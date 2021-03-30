@@ -14,14 +14,15 @@ const SearchResults = () => {
             const filteredData = {
                 title: data.title,
                 author: data.authors[0],
-                description: data.description
+                description: data.description,
+                image: data.imageLinks.smallThumbnail,
+                link: data.infoLink
             };
 
-            console.log(filteredData);
-
             const response = await API.saveBook(filteredData);
-            // response err 422- Unprocessabel Entity?
+
             console.log(response);
+
         } catch (err) {
             console.log(err)
         };
@@ -29,7 +30,7 @@ const SearchResults = () => {
 
     return (
 
-// TODO - add button to save book to db
+// TODO - add if statements to filter missing information and display that it is missing
 
         state && state.posts && state.posts.length ? (
                 state.posts.map(result =>

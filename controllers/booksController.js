@@ -2,10 +2,12 @@ const db = require("../models");
 
 
 // need to make sure that this can be ES6 =>
+// don't need limit but it is fine
 module.exports = {
     findAll: (req, res) => {
         db.Book
             .find()
+            .limit(10)
             .sort({date: -1})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
