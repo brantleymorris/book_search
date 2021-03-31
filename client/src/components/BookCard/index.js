@@ -13,6 +13,13 @@ const BookCard = () => {
         setBooks(response.data);
     };
 
+    const deleteBook = async (id) => {
+        const removed = await API.deleteBook(id);
+        console.log(removed);
+        getBooks();
+    };
+
+    // think I need to add books to the array here so that it will reload when book is removed
     useEffect(() => {
         getBooks();
     }, []);
@@ -55,6 +62,21 @@ const BookCard = () => {
                                             No description available.    
                                         </Row>
                                     )}
+                                    {result.link ? (
+                                        <Row>
+                                            <a href={result.link}>
+                                                <button className="btn">
+                                                    View
+                                                </button>
+                                            </a>
+                                            <button className="btn" onClick={() => {deleteBook(result._id)}}>
+                                                Remove
+                                            </button> 
+                                        </Row>) : (
+                                        <Row>
+                                            <p>No link found.</p>
+                                        </Row>
+                                        )}
                                 </Container>
                             </Col>
                         </Row>

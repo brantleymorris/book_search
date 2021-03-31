@@ -23,6 +23,7 @@ export default {
         return axios.get("/api/books");
     },
 
+    // I don't think I need this one
     getBook: function(id) {
         return axios.get("/api/books/" + id);
     },

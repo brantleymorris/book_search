@@ -31,6 +31,7 @@ const SearchResults = () => {
     return (
 
 // TODO - add if statements to filter missing information and display that it is missing
+//      - restructure card so to accommodate buttons better
 
         state && state.posts && state.posts.length ? (
                 state.posts.map(result =>
@@ -49,6 +50,11 @@ const SearchResults = () => {
                                             <button className="btn" onClick={ () => addSaved(result.volumeInfo)}>
                                                 ❤️ Add to Saved
                                             </button>
+                                            <a href={result.volumeInfo.infoLink}>
+                                                <button className="btn">
+                                                    View
+                                                </button>
+                                            </a>
                                         </Row>
                                         {result.volumeInfo.description ? (
                                             <Row>
