@@ -21,7 +21,7 @@ const SearchResults = () => {
         };
 
         console.log(filteredData);
-        
+
         try {
             const response = await API.saveBook(filteredData);
             console.log(response);
@@ -36,16 +36,32 @@ const SearchResults = () => {
                     <ListItem key={result.id}>
                         <Container>
                             <Row>
-                                <Col size="md-3">
-                                    <img src={result.volumeInfo.imageLinks.smallThumbnail} />
-                                </Col>
+
+                                {result.volumeInfo.imageLinks.smallThumbnail ? (
+                                    <Col size="md-3">
+                                        <img src={result.volumeInfo.imageLinks.smallThumbnail} />
+                                    </Col>) : (
+                                     <Col size="md-3">
+                                         <p>No image found.</p>
+                                     </Col>
+                                )}
+                                
+
                                 <Col size="md-9">
                                     <Container>
-                                        <Row>
-                                            <strong>
-                                                {result.volumeInfo.title} by {result.volumeInfo.authors.join(",")}
-                                            </strong>
-                                        </Row>
+
+                                        {result.volumeInfo.authors ? (
+                                            <Row>
+                                                <strong>
+                                                    {result.volumeInfo.title} by {result.volumeInfo.authors.join(",")}
+                                                </strong>
+                                             </Row>) : (<Row>
+                                                <strong>
+                                                    {result.volumeInfo.title}
+                                                </strong>
+                                            </Row>
+                                        )}
+                               
                                         {result.volumeInfo.description ? (
                                             <Row>
                                                 {result.volumeInfo.description.substring(0,250) /*only load 250 characters*/} 
@@ -55,10 +71,12 @@ const SearchResults = () => {
                                                 No description available.    
                                             </Row>
                                         )}
+
                                         <Row>
                                             <button className="btn" onClick={ () => addSaved(result.volumeInfo)}>
                                                 ❤️ Add to Saved
                                             </button>
+
                                             <a href={result.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">
                                                 <button className="btn btn-secondary">
                                                     View
