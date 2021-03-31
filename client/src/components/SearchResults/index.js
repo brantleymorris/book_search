@@ -36,17 +36,10 @@ const SearchResults = () => {
                     <ListItem key={result.id}>
                         <Container>
                             <Row>
-
-                                {result.volumeInfo.imageLinks.smallThumbnail ? (
-                                    <Col size="md-3">
-                                        <img src={result.volumeInfo.imageLinks.smallThumbnail} />
-                                    </Col>) : (
-                                     <Col size="md-3">
-                                         <p>No image found.</p>
-                                     </Col>
-                                )}
+                                <Col size="md-3">
+                                    <img src={result.volumeInfo.imageLinks.smallThumbnail} />
+                                </Col>
                                 
-
                                 <Col size="md-9">
                                     <Container>
 
