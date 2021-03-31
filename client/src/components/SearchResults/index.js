@@ -10,20 +10,21 @@ const SearchResults = () => {
 
     const addSaved = async (data) => {
         console.log("save was clicked");
+        console.log(data);
+
+        const filteredData = {
+            title: data.title,
+            author: data.authors[0],
+            description: data.description,
+            image: data.imageLinks.smallThumbnail,
+            link: data.infoLink
+        };
+
+        console.log(filteredData);
+        
         try {
-            // filter data
-            const filteredData = {
-                title: data.title,
-                author: data.authors[0],
-                description: data.description,
-                image: data.imageLinks.smallThumbnail,
-                link: data.infoLink
-            };
-
             const response = await API.saveBook(filteredData);
-
             console.log(response);
-
         } catch (err) {
             console.log(err)
         };
