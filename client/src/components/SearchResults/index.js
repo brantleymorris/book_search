@@ -9,6 +9,7 @@ const SearchResults = () => {
     const [state, dispatch] = useStateContext();
 
     const addSaved = async (data) => {
+        console.log("save was clicked");
         try {
             // filter data
             const filteredData = {
