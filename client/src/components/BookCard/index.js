@@ -19,19 +19,11 @@ const BookCard = () => {
         getBooks();
     };
 
-    // think I need to add books to the array here so that it will reload when book is removed
     useEffect(() => {
         getBooks();
     }, []);
 
     return (
-
-// TODO - add button to remove book
-//      - add button to link to book site
-
-
-        // <h1>Test</h1>
-
         books ? (
             books.map(result =>
                 <ListItem key={result._id}>

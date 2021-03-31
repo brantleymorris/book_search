@@ -1,6 +1,5 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-// import componenets here
 import { StateProvider } from "./utils/GlobalState";
 import Home from "./pages/Home";
 import Saved from "./pages/Saved";

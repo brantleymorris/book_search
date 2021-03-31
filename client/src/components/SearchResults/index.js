@@ -29,10 +29,6 @@ const SearchResults = () => {
     };
 
     return (
-
-// TODO - add if statements to filter missing information and display that it is missing
-//      - restructure card so to accommodate buttons better
-
         state && state.posts && state.posts.length ? (
                 state.posts.map(result =>
                     <ListItem key={result.id}>

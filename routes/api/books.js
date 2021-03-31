@@ -9,7 +9,6 @@ router.route("/")
 
 // Matches with "/api/books/:id"
 // selects function based on method
-// may need to add more routes
 router.route("/:id")
     .get(booksController.findById)
     .delete(booksController.remove);

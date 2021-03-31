@@ -1,9 +1,3 @@
-// this is where I will need to make the api call
-// need to get string from req.body
-
-// I don't remember how to do this
-// installed node-fetch to allow for fetch from node.js
-// Calvin note: lets use axios. I think its so much easier
 const axios = require("axios");
 
 module.exports = {
