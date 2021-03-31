@@ -64,12 +64,12 @@ const BookCard = () => {
                                     )}
                                     {result.link ? (
                                         <Row>
-                                            <a href={result.link}>
-                                                <button className="btn">
+                                            <a href={result.link} target="_blank" rel="noopener noreferrer">
+                                                <button className="btn btn-secondary">
                                                     View
                                                 </button>
                                             </a>
-                                            <button className="btn" onClick={() => {deleteBook(result._id)}}>
+                                            <button className="btn btn-primary" onClick={() => {deleteBook(result._id)}}>
                                                 Remove
                                             </button> 
                                         </Row>) : (

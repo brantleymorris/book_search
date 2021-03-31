@@ -47,14 +47,6 @@ const SearchResults = () => {
                                             <strong>
                                                 {result.volumeInfo.title} by {result.volumeInfo.authors.join(",")}
                                             </strong>
-                                            <button className="btn" onClick={ () => addSaved(result.volumeInfo)}>
-                                                ❤️ Add to Saved
-                                            </button>
-                                            <a href={result.volumeInfo.infoLink}>
-                                                <button className="btn">
-                                                    View
-                                                </button>
-                                            </a>
                                         </Row>
                                         {result.volumeInfo.description ? (
                                             <Row>
@@ -65,6 +57,16 @@ const SearchResults = () => {
                                                 No description available.    
                                             </Row>
                                         )}
+                                        <Row>
+                                            <button className="btn" onClick={ () => addSaved(result.volumeInfo)}>
+                                                ❤️ Add to Saved
+                                            </button>
+                                            <a href={result.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">
+                                                <button className="btn btn-secondary">
+                                                    View
+                                                </button>
+                                            </a>
+                                        </Row>
                                     </Container>
                                 </Col>
                             </Row>
